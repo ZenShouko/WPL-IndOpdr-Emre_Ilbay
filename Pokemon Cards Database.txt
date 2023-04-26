@@ -1,0 +1,6 @@
+Pokemon Cards Database
+
+CardName		HP	Element	Attack1	Attack2	Weakness	Ressistance	Generation
+Snivy			60	Grass	Tackle	Vine Whip	Fire		Water		1
+
+
