@@ -1,20 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ClassLib.Business.Entities
 {
     public class Card
     {
+        [Required]
+        [MinLength(3)]
         public string Name { get; set; }
+
+        [Required]
         public int HP { get; set; }
-        public string Type { get; set; }
-        public string Attack1 { get; set; }
-        public string Attack2 { get; set; }
-        public string Weakness { get; set; }
-        public string Resistance { get; set; }
-        public int Generation { get; set; }
+
+        [Required]
+        public string Element { get; set; }
+
+        public string? Weakness { get; set; }
+        public string? Resistance { get; set; }
+
+        [Required]
+        public int Stage { get; set; }
     }
 }
