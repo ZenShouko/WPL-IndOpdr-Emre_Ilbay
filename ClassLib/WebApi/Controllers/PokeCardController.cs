@@ -1,4 +1,5 @@
-﻿using ClassLib.Business.Entities;
+﻿using ClassLib.Business;
+using ClassLib.Business.Entities;
 using ClassLib.Data;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -16,7 +17,8 @@ namespace WebApi.Controllers
         {
             try
             {
-                string json = JsonConvert.SerializeObject(new CardData().GetCards(""));
+                var cards = Cards.GetCards("");
+                string json = JsonConvert.SerializeObject(cards);
                 return Ok(json);
             }
             catch (Exception ex)
@@ -25,6 +27,8 @@ namespace WebApi.Controllers
             }
         }
 
+
+
         [HttpGet("ByName")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -32,20 +36,23 @@ namespace WebApi.Controllers
         public IActionResult GetByName(string name)
         {
             //Checking if the json object is null.
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
                 return BadRequest("No name given.");
 
             //Processing the request.
             try
             {
-                string jsonResult = JsonConvert.SerializeObject(new CardData().GetCards(name));
-                return Ok(jsonResult);
+                List<Card> cards = Cards.GetCards(name);
+                string json = JsonConvert.SerializeObject(cards);
+                return Ok(json);
             }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+
 
         [HttpPost("Add")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -70,7 +77,7 @@ namespace WebApi.Controllers
             //Processing the request.
             try
             {
-                new CardData().AddCard(newCard);
+                Cards.AddCard(newCard);
                 return Ok("Card added.");
             }
             catch (Exception ex)
