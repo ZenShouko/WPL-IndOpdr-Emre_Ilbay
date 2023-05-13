@@ -1,19 +1,29 @@
 ﻿using ClassLib.Business;
 using ClassLib.Business.Entities;
+using ClassLib.Data.Framework;
 
 namespace ClassLib.Data
 {
-    public class CardData
+    public class CardData : SqlServer
     {
         /// <summary>
         /// Returns a list of cards based on the name.
-        /// Giving an empty string will return all cards.
+        /// Checks if the name of the card contains the given name.
         /// </summary>
         /// <param name="name">Pokemon Name</param>
         /// <returns>List with Card objects.</returns>
         public List<Card> GetCards(string name)
         {
-            return Cards.GetCards(name);
+            var cards = Cards.GetCards(name);
+
+            if (cards.Count == 0)
+            {
+                throw new Exception("No cards found.");
+            }
+            else
+            {
+                return cards;
+            }
         }
 
         /// <summary>
