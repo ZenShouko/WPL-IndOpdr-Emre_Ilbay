@@ -12,6 +12,7 @@ namespace ClassLib.Business
         /// </summary>
         public static List<Card> GetCards(string name)
         {
+            ///Creates a new CardData object and calls the GetCards method.
             CardData cardData = new CardData();
             return cardData.GetCards(name);
         }

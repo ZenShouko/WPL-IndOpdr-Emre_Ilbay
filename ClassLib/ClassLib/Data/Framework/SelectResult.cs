@@ -8,5 +8,6 @@ namespace ClassLib.Data.Framework
 {
     public class SelectResult : BaseResult
     {
+        
     }
 }

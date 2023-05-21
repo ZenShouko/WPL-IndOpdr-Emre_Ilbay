@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLib", "ClassLib\ClassLib.csproj", "{9965A995-0A1C-4F1C-B13C-5D5BF65C8E24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{4485C6F9-96C1-4979-A86A-FCCDD98EC7E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{4485C6F9-96C1-4979-A86A-FCCDD98EC7E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiAppNET7", "MauiAppNET7\MauiAppNET7.csproj", "{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{4485C6F9-96C1-4979-A86A-FCCDD98EC7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4485C6F9-96C1-4979-A86A-FCCDD98EC7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4485C6F9-96C1-4979-A86A-FCCDD98EC7E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8AA9C83-EFB6-4C2C-B66B-53F09153A098}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

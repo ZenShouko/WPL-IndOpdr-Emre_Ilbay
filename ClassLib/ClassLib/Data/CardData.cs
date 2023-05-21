@@ -1,12 +1,6 @@
 ﻿using ClassLib.Business;
 using ClassLib.Business.Entities;
 using ClassLib.Data.Framework;
-<<<<<<< HEAD
-
-namespace ClassLib.Data
-{
-    public class CardData : SqlServer
-=======
 using ClassLibTeam05.Data.Framework;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +9,6 @@ using System.Data.SqlClient;
 namespace ClassLib.Data
 {
     internal class CardData : SqlServer
->>>>>>> a778a54c9f46b127167b54fe319c5ea68c060329
     {
         /// <summary>
         /// Returns a list of cards based on the name.
@@ -25,18 +18,11 @@ namespace ClassLib.Data
         /// <returns>List with Card objects.</returns>
         public List<Card> GetCards(string name)
         {
-<<<<<<< HEAD
-            var cards = Cards.GetCards(name);
+            ///Creates a query to get all cards from the database.
+            ///Creates the command and adds the parameter.
+            ///then calls the Select method from the SqlServer class.
+            ///And finally, creates a list of Card objects and adds them to the list.
 
-            if (cards.Count == 0)
-            {
-                throw new Exception("No cards found.");
-            }
-            else
-            {
-                return cards;
-            }
-=======
             string query = "SELECT * FROM PokeTable where Name like @CardName;";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@CardName", $"%{name}%");
@@ -55,12 +41,10 @@ namespace ClassLib.Data
                         Weakness = row[3].ToString(),
                         Resistance = row[4].ToString(),
                         Stage = (int)row[5]
-                    }) ;
+                    });
                 }
             }
-
             return listCards;
->>>>>>> a778a54c9f46b127167b54fe319c5ea68c060329
         }
 
         /// <summary>
@@ -80,8 +64,7 @@ namespace ClassLib.Data
             cmd.Parameters.AddWithValue("@Resistance", newCard.Resistance);
             cmd.Parameters.AddWithValue("@Stage", newCard.Stage);
 
-            InsertResult result = new InsertResult();
-            result = Insert(cmd);
+            InsertResult result = Insert(cmd);
         }
     }
 }
