@@ -26,12 +26,12 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding Name}" FontSize="18" />
-                                <Label Text="{Binding HP}" FontSize="14" />
-                                <Label Text="{Binding Element}" FontSize="14" />
-                                <Label Text="{Binding Weakness}" FontSize="14" />
-                                <Label Text="{Binding Resistance}" FontSize="14" />
-                                <Label Text="{Binding Stage}" FontSize="14" />
+                                <Label Text="{Binding Name}" FontSize="18"/>
+                                <Label Text="{Binding HP}" FontSize="14"/>
+                                <Label Text="{Binding Element}" FontSize="14"/>
+                                <Label Text="{Binding Weakness}" FontSize="14"/>
+                                <Label Text="{Binding Resistance}" FontSize="14"/>
+                                <Label Text="{Binding Stage}" FontSize="14"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
