@@ -19,7 +19,7 @@ namespace WebApi.Controllers
             {
                 var cards = Cards.GetCards("");
                 string json = JsonConvert.SerializeObject(cards);
-                return Ok(json);
+                return Ok(cards);
             }
             catch (Exception ex)
             {

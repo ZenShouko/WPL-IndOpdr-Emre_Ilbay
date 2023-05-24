@@ -10,62 +10,25 @@ namespace MauiAppNET7
             InitializeComponent();
         }
 
-        private async Task<bool> TestConnection()
+        private async Task LoadCards()
         {
-            // Testing the connection.
-            HttpClient client = new HttpClient();
-            string url = "http://localhost:5000/api/PokeCard/All";
+            List<Card> cards = null;
 
+            // Fase4 (lol rip 1-2-3): We deserialize the json string into List<Card>.
             try
             {
-                HttpResponseMessage response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
-                AppendLog(response.ToString());
-                return true;
+                cards = await RestService.GetAll();
             }
             catch (Exception ex)
             {
                 AppendLog(ex.Message);
-                return false;
             }
-        }
 
-        private async Task LoadCards()
-        {
-            using (HttpClient client1 = new HttpClient())
-            {
-                AppendLog("Loading Cards ..."); // Debugging purposes.
+            // Fase5: We set the ItemsSource.
+            LstCards.ItemsSource = cards;
 
-                string url = "http://localhost:5000/api/PokeCard/All";
-
-                HttpResponseMessage response = await client1.GetAsync(url);
-                response.EnsureSuccessStatusCode();
-                AppendLog("Response: " + response.ToString());
-                AppendLog("Client1: " + client1.ToString());
-
-                string json = await response.Content.ReadAsStringAsync();
-
-                // Fase4: We deserialize the json string.
-                List<Card> cards = JsonConvert.DeserializeObject<List<Card>>(json);
-
-                // Fase5: We set the ItemsSource property of the ListView.
-                LstCards.ItemsSource = cards;
-                LstCards.SelectedItem = null;
-                LblCount.Text = $"Number of cards: {cards.Count}";
-            }
-        }
-
-        private async void ContentPage_Loaded(object sender, EventArgs e)
-        {
-            AppendLog("[ContentPage Loaded! Testing connection ...]");
-            if (await TestConnection())
-            {
-                AppendLog("[Connection success!]");
-            }
-            else
-            {
-                AppendLog("[Connection unsuccesful!]");
-            }
+            // Counting the number of cards.
+            LblCount.Text = $"Number of cards: {cards.Count}";
         }
 
         private void AppendLog(string text)
